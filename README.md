@@ -75,3 +75,5 @@ var containsDuplicate = function(nums) {
   return (new Set(nums)).size !== nums.length;
 };
 ```
+
+3. Product of Array Except Self
