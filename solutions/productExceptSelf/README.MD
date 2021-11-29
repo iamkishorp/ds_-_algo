@@ -13,3 +13,21 @@ You must write an algorithm that runs in O(n) time and without using the divisio
 - Example 2:\
   Input: nums = [-1,1,0,-3,3]
   Output: [0,0,9,0,0]
+
+```
+var productExceptSelf = function (nums) {
+  let n = nums.length;
+  let res = new Array(n).fill(1);
+  let left = 1;
+  let right = 1;
+
+  for (let i = 0; i < nums.length; i++) {
+    res[i] *= left;
+    left *= nums[i];
+    res[n - 1 - i] *= right;
+    right *= nums[n - 1 - i];
+  }
+  return res;
+};
+
+```
