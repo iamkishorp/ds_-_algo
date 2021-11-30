@@ -77,3 +77,46 @@ var containsDuplicate = function(nums) {
 ```
 
 3. Product of Array Except Self
+
+```
+var productExceptSelf = function (nums) {
+  let n = nums.length;
+  let res = new Array(n).fill(1);
+  let left = 1;
+  let right = 1;
+
+  for (let i = 0; i < nums.length; i++) {
+    res[i] *= left;
+    left *= nums[i];
+    res[n - 1 - i] *= right;
+    right *= nums[n - 1 - i];
+  }
+  return res;
+};
+```
+
+4. Best Time to Buy and Sell Stock
+
+```
+/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+var maxProfit = function(prices) {
+   let l = 0; r =1;
+    let maxProfit = 0;
+
+    while(r < prices.length){
+        if(prices[r] > prices[l]){
+            profit = prices[r] - prices[l];
+            if(maxProfit < profit ){
+                maxProfit = profit;
+            }
+        }else{
+             l = r;
+        }
+        r++;
+    }
+    return maxProfit;
+};
+```
